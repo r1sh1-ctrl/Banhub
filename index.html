@@ -7,280 +7,319 @@
 <title>BanHub | Social Media Safety</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
+body{
     background:
-        radial-gradient(circle at 20% 10%, rgba(255,70,40,0.16), transparent 30%),
-        radial-gradient(circle at 90% 40%, rgba(255,150,40,0.10), transparent 30%),
-        #090909;
-    color: #ffffff;
-    min-height: 100vh;
+    radial-gradient(circle at 15% 10%,rgba(255,70,40,.18),transparent 30%),
+    radial-gradient(circle at 90% 35%,rgba(255,150,40,.10),transparent 30%),
+    #080808;
+    color:#fff;
+    min-height:100vh;
 }
 
-/* Background watermark */
-body::before {
-    content: "R1SH1";
-    position: fixed;
-    font-size: 130px;
-    font-weight: 900;
-    color: rgba(255,255,255,0.018);
-    top: 35%;
-    left: 5%;
-    transform: rotate(-20deg);
-    pointer-events: none;
-    z-index: -1;
+body:before{
+    content:"R1SH1";
+    position:fixed;
+    font-size:130px;
+    font-weight:900;
+    color:rgba(255,255,255,.018);
+    top:38%;
+    left:4%;
+    transform:rotate(-20deg);
+    pointer-events:none;
+    z-index:-1;
 }
 
-/* Navbar */
-nav {
-    width: 100%;
-    padding: 20px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(9,9,9,0.88);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,0.07);
+/* NAVBAR */
+nav{
+    width:100%;
+    padding:20px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(8,8,8,.88);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,.07);
 }
 
-.logo {
-    font-size: 26px;
-    font-weight: 900;
-    letter-spacing: 1px;
+.logo{
+    font-size:27px;
+    font-weight:900;
 }
 
-.logo span {
-    color: #ff5733;
+.logo span{
+    color:#ff5733;
 }
 
-nav a {
-    color: #bbb;
-    text-decoration: none;
-    margin-left: 25px;
-    font-size: 14px;
+nav a{
+    color:#aaa;
+    text-decoration:none;
+    margin-left:24px;
+    font-size:14px;
 }
 
-nav a:hover {
-    color: #ff7048;
+nav a:hover{
+    color:#ff7048;
 }
 
-/* Hero */
-.hero {
-    min-height: 75vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 70px 20px;
+/* HERO */
+.hero{
+    min-height:75vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:70px 20px;
 }
 
-.hero-box {
-    max-width: 850px;
+.hero-box{
+    max-width:850px;
 }
 
-.badge {
-    display: inline-block;
-    padding: 8px 15px;
-    border: 1px solid rgba(255,100,60,0.4);
-    border-radius: 50px;
-    color: #ff7655;
-    background: rgba(255,70,40,0.07);
-    font-size: 13px;
-    margin-bottom: 25px;
+.badge{
+    display:inline-block;
+    padding:8px 15px;
+    border:1px solid rgba(255,100,60,.4);
+    border-radius:50px;
+    color:#ff7655;
+    background:rgba(255,70,40,.07);
+    font-size:13px;
+    margin-bottom:25px;
 }
 
-h1 {
-    font-size: clamp(45px, 8vw, 82px);
-    line-height: 1;
-    margin-bottom: 22px;
+h1{
+    font-size:clamp(45px,8vw,82px);
+    line-height:1;
+    margin-bottom:22px;
 }
 
-h1 span {
-    background: linear-gradient(90deg, #ff4933, #ffb347);
-    -webkit-background-clip: text;
-    color: transparent;
+h1 span{
+    background:linear-gradient(90deg,#ff4933,#ffb347);
+    -webkit-background-clip:text;
+    color:transparent;
 }
 
-.hero p {
-    color: #aaa;
-    font-size: 18px;
-    line-height: 1.7;
-    max-width: 650px;
-    margin: auto;
+.hero p{
+    color:#aaa;
+    font-size:18px;
+    line-height:1.7;
+    max-width:650px;
+    margin:auto;
 }
 
-/* Main button */
-.main-btn {
-    display: inline-block;
-    margin-top: 35px;
-    padding: 16px 28px;
-    border-radius: 12px;
-    background: linear-gradient(90deg, #ff4933, #ff7b38);
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 10px 35px rgba(255,70,40,0.22);
-    transition: 0.25s;
-    border: none;
-    cursor: pointer;
-    font-size: 15px;
+/* BUTTON */
+.main-btn{
+    display:inline-block;
+    margin-top:35px;
+    padding:16px 28px;
+    border-radius:12px;
+    background:linear-gradient(90deg,#ff4933,#ff7b38);
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    border:0;
+    cursor:pointer;
+    font-size:15px;
+    box-shadow:0 10px 35px rgba(255,70,40,.22);
+    transition:.25s;
 }
 
-.main-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(255,70,40,0.35);
+.main-btn:hover{
+    transform:translateY(-3px);
 }
 
-/* Section */
-.section {
-    padding: 80px 7%;
-    max-width: 1150px;
-    margin: auto;
+/* SECTIONS */
+.section{
+    padding:80px 7%;
+    max-width:1150px;
+    margin:auto;
 }
 
-.section-title {
-    text-align: center;
-    margin-bottom: 45px;
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
 }
 
-.section-title h2 {
-    font-size: 36px;
-    margin-bottom: 12px;
+.section-title h2{
+    font-size:36px;
+    margin-bottom:12px;
 }
 
-.section-title p {
-    color: #999;
+.section-title p{
+    color:#999;
 }
 
-/* Cards */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
 }
 
-.card {
-    background: rgba(255,255,255,0.035);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 18px;
-    padding: 25px;
-    transition: 0.25s;
+.card{
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:25px;
+    transition:.25s;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255,90,60,0.45);
-    background: rgba(255,255,255,0.055);
+.card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(255,90,60,.45);
 }
 
-.icon {
-    font-size: 30px;
-    margin-bottom: 15px;
+.icon{
+    font-size:30px;
+    margin-bottom:15px;
 }
 
-.card h3 {
-    margin-bottom: 10px;
+.card h3{
+    margin-bottom:10px;
 }
 
-.card p {
-    color: #999;
-    line-height: 1.6;
-    font-size: 14px;
+.card p{
+    color:#999;
+    line-height:1.6;
+    font-size:14px;
 }
 
-/* Report Methods */
-#methods {
-    display: none;
+/* REPORT METHODS */
+#methods{
+    display:none;
 }
 
-.method-card {
-    margin-bottom: 18px;
-    background: rgba(255,255,255,0.035);
-    border: 1px solid rgba(255,255,255,0.09);
-    border-left: 4px solid #ff5733;
-    border-radius: 14px;
-    padding: 22px;
+.method-card{
+    position:relative;
+    margin-bottom:20px;
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.09);
+    border-left:4px solid #ff5733;
+    border-radius:15px;
+    padding:24px;
 }
 
-.method-card h3 {
-    margin-bottom: 12px;
+.credit{
+    position:absolute;
+    top:15px;
+    right:18px;
+    color:#777;
+    font-size:11px;
+    font-style:italic;
 }
 
-.method-card p {
-    color: #aaa;
-    line-height: 1.7;
+.method-card h3{
+    margin-bottom:16px;
+    padding-right:100px;
 }
 
-.method {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 9px 13px;
-    background: rgba(255,80,50,0.10);
-    border-radius: 8px;
-    color: #ff876c;
-    font-weight: bold;
-    font-size: 13px;
+.method-card p{
+    color:#aaa;
+    line-height:1.6;
+    margin-bottom:12px;
 }
 
-/* Note */
-.note {
-    margin-top: 30px;
-    padding: 18px;
-    border-radius: 12px;
-    background: rgba(255,180,70,0.06);
-    border: 1px solid rgba(255,180,70,0.18);
-    color: #bbb;
-    line-height: 1.6;
-    font-size: 13px;
+.method{
+    display:block;
+    width:max-content;
+    max-width:100%;
+    margin-top:10px;
+    padding:10px 14px;
+    background:rgba(255,80,50,.10);
+    border-radius:8px;
+    color:#ff876c;
+    font-weight:bold;
+    font-size:13px;
 }
 
-/* Footer */
-footer {
-    margin-top: 60px;
-    padding: 30px;
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.07);
-    color: #777;
+/* COMING SOON */
+.coming{
+    display:inline-block;
+    margin-top:15px;
+    padding:11px 16px;
+    border-radius:9px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
+    color:#aaa;
+    font-size:13px;
 }
 
-footer strong {
-    color: #ff7048;
+/* SAFETY */
+.safety{
+    margin-top:30px;
+    padding:22px;
+    border-radius:14px;
+    background:rgba(255,180,70,.06);
+    border:1px solid rgba(255,180,70,.18);
+    color:#aaa;
+    line-height:1.7;
+    font-size:13px;
 }
 
-/* Mobile */
-@media (max-width: 800px) {
-    .cards {
-        grid-template-columns: 1fr;
+/* FOOTER */
+footer{
+    margin-top:60px;
+    padding:35px 20px;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.07);
+    color:#777;
+}
+
+.designed{
+    margin-top:8px;
+    font-size:17px;
+    color:#aaa;
+}
+
+.designed span{
+    color:#ff7048;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+    .cards{
+        grid-template-columns:1fr;
     }
 
-    nav {
-        padding: 17px 5%;
+    nav{
+        padding:17px 5%;
     }
 
-    nav a {
-        margin-left: 10px;
-        font-size: 12px;
+    nav a{
+        margin-left:10px;
+        font-size:12px;
     }
 
-    .section {
-        padding: 60px 5%;
+    .section{
+        padding:60px 5%;
     }
 
-    .hero {
-        min-height: 70vh;
+    .hero{
+        min-height:70vh;
+    }
+
+    .credit{
+        position:static;
+        display:block;
+        margin-bottom:10px;
+    }
+
+    .method-card h3{
+        padding-right:0;
     }
 }
 </style>
@@ -347,8 +386,8 @@ footer strong {
             <div class="icon">😡</div>
             <h3>Bullying</h3>
             <p>
-                Learn which reporting option may apply
-                to bullying or harassment.
+                Guidance for bullying, harassment and abusive
+                behaviour.
             </p>
         </div>
 
@@ -356,9 +395,53 @@ footer strong {
             <div class="icon">⚠️</div>
             <h3>Scams</h3>
             <p>
-                Guidance for suspicious accounts, fake offers,
-                fraud and phishing attempts.
+                Guidance for suspicious accounts, fraud,
+                phishing and scam activity.
             </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- EXTRA OPTIONS -->
+<section class="section">
+
+    <div class="section-title">
+        <h2>More Help</h2>
+        <p>More BanHub features are coming soon.</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">📱</div>
+            <h3>Instagram Help</h3>
+            <span class="coming">🔒 Coming Soon</span>
+        </div>
+
+        <div class="card">
+            <div class="icon">📘</div>
+            <h3>Facebook Help</h3>
+            <span class="coming">🔒 Coming Soon</span>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔐</div>
+            <h3>Account Recovery</h3>
+            <span class="coming">🔒 Coming Soon</span>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌐</div>
+            <h3>More Safety Guides</h3>
+            <span class="coming">🔒 Coming Soon</span>
+        </div>
+
+        <div class="card">
+            <div class="icon">🚫</div>
+            <h3>How to Fix Your IP Ban of Insta</h3>
+            <span class="coming">🔒 Coming Soon</span>
         </div>
 
     </div>
@@ -370,11 +453,15 @@ footer strong {
 
     <div class="section-title">
         <h2>Report Methods</h2>
-        <p>Choose the category that matches the problem.</p>
+        <p>Select the category that matches the issue.</p>
     </div>
 
 
+    <!-- FAKE ACCOUNT -->
     <div class="method-card">
+
+        <div class="credit">By R1SH1/~</div>
+
         <h3>👤 Fake Account / Impersonation</h3>
 
         <p>
@@ -383,61 +470,66 @@ footer strong {
         </p>
 
         <div class="method">
-            3× IMP — Pretending to be someone else
+            IMP — Pretending to be someone else
         </div>
-
-        <p>
-            Then go to <b>Other</b>, search for your genuine
-            account and select it when the platform asks.
-        </p>
 
         <div class="method">
-            2× SC4M — if the situation also involves a scam
+            SC4M — Scam/Fraud when relevant
         </div>
+
     </div>
 
 
+    <!-- BULLYING -->
     <div class="method-card">
-        <h3>😡 Bullying / Harassment</h3>
+
+        <div class="credit">By R1SH1/~</div>
+
+        <h3>😡 ID Mention Karke Gaali / Bullying</h3>
 
         <p>
-            Someone is mentioning your ID and sending abusive
-            or bullying messages.
+            Someone is mentioning your ID and directing
+            abusive or bullying content at you.
         </p>
 
         <div class="method">
-            3× BULLY (ME)
+            BULLY (ME)
         </div>
-
-        <br>
 
         <div class="method">
-            2× HATE — when applicable
+            HATE
         </div>
+
     </div>
 
 
+    <!-- ABUSIVE LANGUAGE -->
     <div class="method-card">
-        <h3>🗯️ Abusive Language</h3>
+
+        <div class="credit">By R1SH1/~</div>
+
+        <h3>🗯️ Bina Reason Gaali / Abusive Language</h3>
 
         <p>
-            Someone is using abusive or insulting language
-            towards another person.
+            Someone is using abusive or insulting language.
         </p>
 
         <div class="method">
-            3× H8
+            H8
         </div>
-
-        <br>
 
         <div class="method">
-            2× VIO¹ — when applicable
+            VIO¹
         </div>
+
     </div>
 
 
+    <!-- SCAM -->
     <div class="method-card">
+
+        <div class="credit">By R1SH1/~</div>
+
         <h3>⚠️ Scam / Fraud</h3>
 
         <p>
@@ -446,44 +538,55 @@ footer strong {
         </p>
 
         <div class="method">
-            SC4M / Scam or Fraud
+            SC4M
         </div>
+
     </div>
 
 
+    <!-- PRIVACY -->
     <div class="method-card">
+
+        <div class="credit">By R1SH1/~</div>
+
         <h3>🔒 Privacy Issue</h3>
 
         <p>
             Someone has shared your personal information
-            without your permission.
+            without permission.
         </p>
 
         <div class="method">
-            Privacy / Personal Information
+            PRIVACY
         </div>
+
     </div>
 
 
+    <!-- INAPPROPRIATE -->
     <div class="method-card">
+
+        <div class="credit">By R1SH1/~</div>
+
         <h3>🚫 Inappropriate Content</h3>
 
         <p>
-            Content that violates the platform's community
+            Content that violates a platform's community
             guidelines or safety rules.
         </p>
 
         <div class="method">
-            Select the relevant official category
+            OFFICIAL REPORT CATEGORY
         </div>
+
     </div>
 
 
-    <div class="note">
+    <div class="safety">
         <b>⚠️ Important:</b><br>
-        Only report genuine violations. Reporting categories
-        and review decisions can vary by platform. A report
-        does not guarantee that an account or post will be removed.
+        Report genuine violations through the platform's
+        official reporting system. A report does not guarantee
+        that an account or post will be removed.
     </div>
 
 </section>
@@ -491,23 +594,30 @@ footer strong {
 
 <!-- FOOTER -->
 <footer>
-    © 2026 BanHub • Social Media Safety<br>
-    <strong>Rishabh</strong>
+
+    © 2026 BanHub • Social Media Safety
+
+    <div class="designed">
+        Designed by <span>𝓡𝓲𝓼𝓱𝓪𝓫𝓱</span>
+    </div>
+
 </footer>
 
 
 <script>
-function showMethods() {
+function showMethods(){
 
     const section = document.getElementById("methods");
 
     section.style.display = "block";
 
-    setTimeout(function() {
+    setTimeout(function(){
+
         section.scrollIntoView({
-            behavior: "smooth"
+            behavior:"smooth"
         });
-    }, 100);
+
+    },100);
 }
 </script>
 
