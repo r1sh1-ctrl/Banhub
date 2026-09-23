@@ -11,7 +11,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 html{
@@ -19,133 +19,180 @@ html{
 }
 
 body{
-    background:
-    radial-gradient(circle at 15% 10%,rgba(255,70,40,.18),transparent 30%),
-    radial-gradient(circle at 90% 35%,rgba(255,150,40,.10),transparent 30%),
-    #080808;
+    background:#070707;
     color:#fff;
-    min-height:100vh;
+    overflow-x:hidden;
 }
 
-body:before{
-    content:"R1SH1";
+/* BACKGROUND GLOW */
+body::before{
+    content:"";
     position:fixed;
-    font-size:130px;
+    width:500px;
+    height:500px;
+    background:rgba(255,65,35,.10);
+    filter:blur(120px);
+    border-radius:50%;
+    top:-180px;
+    left:-160px;
+    z-index:-3;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:450px;
+    height:450px;
+    background:rgba(255,150,40,.07);
+    filter:blur(130px);
+    border-radius:50%;
+    bottom:-180px;
+    right:-150px;
+    z-index:-3;
+}
+
+/* WATERMARK */
+.watermark{
+    position:fixed;
+    top:42%;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(-18deg);
+    font-size:clamp(80px,16vw,190px);
     font-weight:900;
+    letter-spacing:15px;
     color:rgba(255,255,255,.018);
-    top:38%;
-    left:4%;
-    transform:rotate(-20deg);
     pointer-events:none;
-    z-index:-1;
+    z-index:-2;
 }
 
 /* NAVBAR */
 nav{
-    width:100%;
-    padding:20px 7%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    padding:17px 7%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    position:sticky;
-    top:0;
-    z-index:100;
-    background:rgba(8,8,8,.88);
-    backdrop-filter:blur(12px);
+    background:rgba(7,7,7,.78);
+    backdrop-filter:blur(18px);
     border-bottom:1px solid rgba(255,255,255,.07);
 }
 
 .logo{
     font-size:27px;
     font-weight:900;
+    letter-spacing:-1px;
 }
 
 .logo span{
-    color:#ff5733;
+    color:#ff5b3d;
 }
 
-nav a{
+.nav-links{
+    display:flex;
+    gap:28px;
+}
+
+.nav-links a{
     color:#aaa;
     text-decoration:none;
-    margin-left:24px;
     font-size:14px;
+    transition:.25s;
 }
 
-nav a:hover{
+.nav-links a:hover{
     color:#ff7048;
 }
 
 /* HERO */
 .hero{
-    min-height:75vh;
+    min-height:82vh;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
-    padding:70px 20px;
+    padding:80px 20px;
+    position:relative;
 }
 
-.hero-box{
-    max-width:850px;
+.hero-content{
+    max-width:900px;
 }
 
 .badge{
-    display:inline-block;
-    padding:8px 15px;
-    border:1px solid rgba(255,100,60,.4);
-    border-radius:50px;
-    color:#ff7655;
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:9px 16px;
+    border:1px solid rgba(255,91,61,.35);
     background:rgba(255,70,40,.07);
+    border-radius:50px;
+    color:#ff8468;
     font-size:13px;
+    margin-bottom:28px;
+    box-shadow:0 0 25px rgba(255,70,40,.06);
+}
+
+.hero h1{
+    font-size:clamp(48px,9vw,88px);
+    line-height:.95;
+    letter-spacing:-4px;
     margin-bottom:25px;
 }
 
-h1{
-    font-size:clamp(45px,8vw,82px);
-    line-height:1;
-    margin-bottom:22px;
-}
-
-h1 span{
-    background:linear-gradient(90deg,#ff4933,#ffb347);
+.gradient{
+    background:linear-gradient(90deg,#ff4933,#ff9c43);
     -webkit-background-clip:text;
     color:transparent;
 }
 
-.hero p{
-    color:#aaa;
-    font-size:18px;
-    line-height:1.7;
+.hero-description{
     max-width:650px;
     margin:auto;
+    color:#999;
+    line-height:1.8;
+    font-size:17px;
 }
 
-/* MAIN BUTTON */
+/* BUTTON */
 .main-btn{
-    display:inline-block;
     margin-top:35px;
-    padding:16px 28px;
-    border-radius:12px;
-    background:linear-gradient(90deg,#ff4933,#ff7b38);
+    padding:16px 25px;
+    border:none;
+    border-radius:13px;
+    background:linear-gradient(100deg,#ff4933,#ff7b38);
     color:white;
-    text-decoration:none;
     font-weight:bold;
-    border:0;
+    font-size:14px;
     cursor:pointer;
-    font-size:15px;
-    box-shadow:0 10px 35px rgba(255,70,40,.22);
-    transition:.25s;
+    box-shadow:0 12px 35px rgba(255,70,40,.20);
+    transition:.3s;
 }
 
 .main-btn:hover{
-    transform:translateY(-3px);
+    transform:translateY(-4px);
+    box-shadow:0 18px 45px rgba(255,70,40,.30);
+}
+
+.main-btn:active{
+    transform:scale(.97);
+}
+
+/* SCROLL INDICATOR */
+.scroll{
+    position:absolute;
+    bottom:25px;
+    color:#555;
+    font-size:11px;
+    letter-spacing:2px;
 }
 
 /* SECTIONS */
 .section{
-    padding:80px 7%;
-    max-width:1150px;
+    width:min(1150px,90%);
     margin:auto;
+    padding:90px 0;
 }
 
 .section-title{
@@ -153,13 +200,24 @@ h1 span{
     margin-bottom:45px;
 }
 
+.section-title .mini{
+    color:#ff7048;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
 .section-title h2{
-    font-size:36px;
+    font-size:38px;
+    letter-spacing:-1px;
     margin-bottom:12px;
 }
 
 .section-title p{
-    color:#999;
+    color:#888;
+    font-size:14px;
 }
 
 /* CARDS */
@@ -170,155 +228,309 @@ h1 span{
 }
 
 .card{
-    background:rgba(255,255,255,.035);
+    position:relative;
+    padding:28px;
+    min-height:190px;
+    border-radius:19px;
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.055),
+        rgba(255,255,255,.018)
+    );
     border:1px solid rgba(255,255,255,.08);
-    border-radius:18px;
-    padding:25px;
-    transition:.25s;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    background:rgba(255,70,40,.08);
+    filter:blur(45px);
+    top:-40px;
+    right:-30px;
 }
 
 .card:hover{
-    transform:translateY(-5px);
-    border-color:rgba(255,90,60,.45);
+    transform:translateY(-7px);
+    border-color:rgba(255,90,60,.35);
+    box-shadow:0 15px 45px rgba(0,0,0,.3);
 }
 
 .icon{
-    font-size:30px;
-    margin-bottom:15px;
+    width:48px;
+    height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:13px;
+    background:rgba(255,75,45,.09);
+    border:1px solid rgba(255,90,60,.15);
+    font-size:23px;
+    margin-bottom:20px;
 }
 
 .card h3{
+    font-size:18px;
     margin-bottom:10px;
 }
 
 .card p{
-    color:#999;
-    line-height:1.6;
-    font-size:14px;
+    color:#888;
+    font-size:13px;
+    line-height:1.7;
 }
 
-/* COMING SOON */
+/* MORE HELP */
+.more-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.coming-card{
+    padding:22px;
+    border-radius:16px;
+    background:rgba(255,255,255,.025);
+    border:1px solid rgba(255,255,255,.07);
+    transition:.25s;
+}
+
+.coming-card:hover{
+    border-color:rgba(255,90,60,.28);
+    transform:translateY(-4px);
+}
+
+.coming-icon{
+    font-size:25px;
+    margin-bottom:14px;
+}
+
+.coming-card h3{
+    font-size:15px;
+    margin-bottom:13px;
+}
+
 .coming{
     display:inline-block;
-    margin-top:15px;
-    padding:11px 16px;
-    border-radius:9px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.1);
-    color:#aaa;
-    font-size:13px;
+    padding:7px 11px;
+    border-radius:7px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.07);
+    color:#777;
+    font-size:11px;
 }
 
-/* REPORT METHODS */
+/* METHODS */
 #methods{
     display:none;
+    animation:appear .6s ease;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.method-list{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
 }
 
 .method-card{
     position:relative;
-    margin-bottom:20px;
-    background:rgba(255,255,255,.035);
-    border:1px solid rgba(255,255,255,.09);
-    border-left:4px solid #ff5733;
-    border-radius:15px;
-    padding:24px;
+    padding:27px;
+    border-radius:18px;
+    background:linear-gradient(
+        110deg,
+        rgba(255,255,255,.045),
+        rgba(255,255,255,.018)
+    );
+    border:1px solid rgba(255,255,255,.08);
+    border-left:3px solid #ff593c;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.method-card:hover{
+    border-left-color:#ff9b45;
+    transform:translateX(4px);
+    box-shadow:0 12px 35px rgba(0,0,0,.25);
+}
+
+.method-card::after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    background:rgba(255,70,40,.06);
+    filter:blur(65px);
+    right:-100px;
+    top:-100px;
+    pointer-events:none;
 }
 
 .credit{
     position:absolute;
-    top:15px;
-    right:18px;
-    color:#777;
-    font-size:11px;
+    top:17px;
+    right:20px;
+    color:#555;
+    font-size:10px;
     font-style:italic;
 }
 
 .method-card h3{
-    margin-bottom:16px;
-    padding-right:100px;
+    font-size:18px;
+    margin-bottom:12px;
+    padding-right:110px;
 }
 
 .method-card p{
-    color:#aaa;
-    line-height:1.6;
-    margin-bottom:12px;
+    color:#888;
+    line-height:1.65;
+    font-size:13px;
+    max-width:720px;
+    margin-bottom:17px;
 }
 
 .method{
-    display:block;
-    width:max-content;
-    margin-top:10px;
-    padding:10px 14px;
-    background:rgba(255,80,50,.10);
+    display:inline-block;
+    margin:5px 7px 0 0;
+    padding:9px 13px;
     border-radius:8px;
-    color:#ff876c;
+    background:rgba(255,70,40,.08);
+    border:1px solid rgba(255,90,60,.13);
+    color:#ff896f;
+    font-size:12px;
     font-weight:bold;
-    font-size:13px;
+    letter-spacing:.3px;
 }
 
-/* SAFETY */
+/* SAFETY BOX */
 .safety{
-    margin-top:30px;
-    padding:22px;
+    margin-top:25px;
+    padding:20px 22px;
     border-radius:14px;
-    background:rgba(255,180,70,.06);
-    border:1px solid rgba(255,180,70,.18);
-    color:#aaa;
+    background:rgba(255,180,70,.045);
+    border:1px solid rgba(255,180,70,.14);
+    color:#888;
+    font-size:12px;
     line-height:1.7;
-    font-size:13px;
+}
+
+.safety strong{
+    color:#d7a05c;
 }
 
 /* FOOTER */
 footer{
     margin-top:60px;
-    padding:35px 20px;
+    padding:45px 20px;
     text-align:center;
     border-top:1px solid rgba(255,255,255,.07);
-    color:#777;
+    color:#555;
+    font-size:12px;
+}
+
+.footer-logo{
+    color:#aaa;
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.footer-logo span{
+    color:#ff6748;
 }
 
 .designed{
-    margin-top:8px;
-    font-size:17px;
-    color:#aaa;
+    margin-top:12px;
+    color:#777;
+    font-size:14px;
 }
 
 .designed span{
     color:#ff7048;
+    font-size:17px;
 }
 
 /* MOBILE */
 @media(max-width:800px){
 
-    .cards{
-        grid-template-columns:1fr;
-    }
-
     nav{
-        padding:17px 5%;
+        padding:16px 5%;
     }
 
-    nav a{
-        margin-left:10px;
-        font-size:12px;
+    .logo{
+        font-size:23px;
     }
 
-    .section{
-        padding:60px 5%;
+    .nav-links{
+        gap:14px;
+    }
+
+    .nav-links a{
+        font-size:11px;
     }
 
     .hero{
-        min-height:70vh;
+        min-height:76vh;
+        padding:60px 18px;
+    }
+
+    .hero h1{
+        font-size:50px;
+        letter-spacing:-3px;
+    }
+
+    .hero-description{
+        font-size:14px;
+    }
+
+    .section{
+        width:90%;
+        padding:65px 0;
+    }
+
+    .section-title h2{
+        font-size:30px;
+    }
+
+    .cards,
+    .more-grid{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        min-height:auto;
+    }
+
+    .method-card{
+        padding:22px;
+    }
+
+    .method-card h3{
+        padding-right:0;
+        margin-top:15px;
     }
 
     .credit{
         position:static;
         display:block;
-        margin-bottom:10px;
+        margin-bottom:12px;
     }
 
-    .method-card h3{
-        padding-right:0;
+    .watermark{
+        font-size:70px;
     }
 }
 </style>
@@ -326,12 +538,15 @@ footer{
 
 <body>
 
+<div class="watermark">R1SH1</div>
+
 <!-- NAVBAR -->
 <nav>
     <div class="logo">Ban<span>Hub</span></div>
 
-    <div>
+    <div class="nav-links">
         <a href="#home">Home</a>
+        <a href="#help">Help</a>
         <a href="#methods">Reports</a>
     </div>
 </nav>
@@ -339,67 +554,98 @@ footer{
 
 <!-- HERO -->
 <section class="hero" id="home">
-    <div class="hero-box">
 
-        <div class="badge">🛡️ Social Media Safety</div>
+    <div class="hero-content">
+
+        <div class="badge">
+            🛡️ Social Media Safety
+        </div>
 
         <h1>
             Stay Safe.<br>
-            <span>Report Smart.</span>
+            <span class="gradient">Report Smart.</span>
         </h1>
 
-        <p>
+        <p class="hero-description">
             BanHub helps users understand common social media
             safety issues and find the appropriate official
             reporting option.
         </p>
 
         <button class="main-btn" onclick="showMethods()">
-            🛡️ Simple Helpful Report Methods
+            🛡️ View Report Guidance
         </button>
 
     </div>
+
+    <div class="scroll">
+        SCROLL TO EXPLORE ↓
+    </div>
+
 </section>
 
 
 <!-- WHAT WE HELP WITH -->
-<section class="section">
+<section class="section" id="help">
 
     <div class="section-title">
+
+        <div class="mini">What We Cover</div>
+
         <h2>What We Help With</h2>
-        <p>Understand the type of issue before reporting.</p>
+
+        <p>
+            Understand the type of issue before reporting.
+        </p>
+
     </div>
+
 
     <div class="cards">
 
         <div class="card">
+
             <div class="icon">👤</div>
+
             <h3>Fake Accounts</h3>
+
             <p>
                 Guidance for accounts pretending to be
                 another person or using someone else's identity.
             </p>
+
         </div>
 
+
         <div class="card">
+
             <div class="icon">😡</div>
+
             <h3>Bullying</h3>
+
             <p>
-                Guidance for bullying, harassment and abusive
-                behaviour.
+                Guidance for bullying, harassment and
+                abusive behaviour on social platforms.
             </p>
+
         </div>
 
+
         <div class="card">
+
             <div class="icon">⚠️</div>
+
             <h3>Scams</h3>
+
             <p>
                 Guidance for suspicious accounts, fraud,
                 phishing and scam activity.
             </p>
+
         </div>
 
     </div>
+
 </section>
 
 
@@ -407,55 +653,70 @@ footer{
 <section class="section">
 
     <div class="section-title">
+
+        <div class="mini">Coming Soon</div>
+
         <h2>More Help</h2>
-        <p>More BanHub features are coming soon.</p>
+
+        <p>
+            More BanHub features are currently being prepared.
+        </p>
+
     </div>
 
-    <div class="cards">
 
-        <div class="card">
-            <div class="icon">📱</div>
+    <div class="more-grid">
+
+        <div class="coming-card">
+            <div class="coming-icon">📱</div>
             <h3>Instagram Help</h3>
             <span class="coming">🔒 Coming Soon</span>
         </div>
 
-        <div class="card">
-            <div class="icon">📘</div>
+
+        <div class="coming-card">
+            <div class="coming-icon">📘</div>
             <h3>Facebook Help</h3>
             <span class="coming">🔒 Coming Soon</span>
         </div>
 
-        <div class="card">
-            <div class="icon">🔐</div>
+
+        <div class="coming-card">
+            <div class="coming-icon">🔐</div>
             <h3>Account Recovery</h3>
             <span class="coming">🔒 Coming Soon</span>
         </div>
 
-        <div class="card">
-            <div class="icon">🌐</div>
+
+        <div class="coming-card">
+            <div class="coming-icon">🌐</div>
             <h3>More Safety Guides</h3>
             <span class="coming">🔒 Coming Soon</span>
         </div>
 
-        <div class="card">
-            <div class="icon">🚫</div>
+
+        <div class="coming-card">
+            <div class="coming-icon">🚫</div>
             <h3>How to Fix Your IP Ban of Insta</h3>
             <span class="coming">🔒 Coming Soon</span>
         </div>
 
-        <div class="card">
-            <div class="icon">🔨</div>
+
+        <div class="coming-card">
+            <div class="coming-icon">🔨</div>
             <h3>Hard Ban Method Guide</h3>
             <span class="coming">🔒 Coming Soon</span>
         </div>
 
-        <div class="card">
-            <div class="icon">📩</div>
+
+        <div class="coming-card">
+            <div class="coming-icon">📩</div>
             <h3>Contact Me</h3>
             <span class="coming">🔒 Coming Soon</span>
         </div>
 
     </div>
+
 </section>
 
 
@@ -463,141 +724,157 @@ footer{
 <section class="section" id="methods">
 
     <div class="section-title">
+
+        <div class="mini">Reporting Guidance</div>
+
         <h2>Report Methods</h2>
-        <p>Select the category that matches the issue.</p>
-    </div>
-
-
-    <!-- FAKE ACCOUNT -->
-    <div class="method-card">
-
-        <div class="credit">By R1SH1/~</div>
-
-        <h3>👤 Fake Account / Impersonation</h3>
 
         <p>
-            Someone created a fake account using your photo,
-            name or identity.
+            Select the category that matches the issue.
         </p>
-
-        <div class="method">
-            3x IMP
-        </div>
-
-        <div class="method">
-            2x SC4M
-        </div>
 
     </div>
 
 
-    <!-- BULLYING -->
-    <div class="method-card">
+    <div class="method-list">
 
-        <div class="credit">By R1SH1/~</div>
 
-        <h3>😡 ID Mention Karke Gaali / Bullying</h3>
+        <!-- FAKE ACCOUNT -->
+        <div class="method-card">
 
-        <p>
-            Someone is mentioning your ID and directing
-            abusive or bullying content at you.
-        </p>
+            <div class="credit">By R1SH1/~</div>
 
-        <div class="method">
-            3x BULLY (ME)
+            <h3>👤 Fake Account / Impersonation</h3>
+
+            <p>
+                Someone created a fake account using your
+                photo, name or identity.
+            </p>
+
+            <div class="method">
+                3x IMP
+            </div>
+
+            <div class="method">
+                2x SC4M
+            </div>
+
         </div>
 
-        <div class="method">
-            2x HATE
+
+        <!-- BULLYING -->
+        <div class="method-card">
+
+            <div class="credit">By R1SH1/~</div>
+
+            <h3>😡 ID Mention Karke Gaali / Bullying</h3>
+
+            <p>
+                Someone is mentioning your ID and directing
+                abusive or bullying content at you.
+            </p>
+
+            <div class="method">
+                3x BULLY (ME)
+            </div>
+
+            <div class="method">
+                2x HATE
+            </div>
+
         </div>
 
-    </div>
 
+        <!-- ABUSIVE LANGUAGE -->
+        <div class="method-card">
 
-    <!-- ABUSIVE LANGUAGE -->
-    <div class="method-card">
+            <div class="credit">By R1SH1/~</div>
 
-        <div class="credit">By R1SH1/~</div>
+            <h3>🗯️ Bina Reason Gaali / Abusive Language</h3>
 
-        <h3>🗯️ Bina Reason Gaali / Abusive Language</h3>
+            <p>
+                Someone is using abusive or insulting language.
+            </p>
 
-        <p>
-            Someone is using abusive or insulting language.
-        </p>
+            <div class="method">
+                3x H8
+            </div>
 
-        <div class="method">
-            3x H8
+            <div class="method">
+                2x VIO¹
+            </div>
+
         </div>
 
-        <div class="method">
-            2x VIO¹
+
+        <!-- SCAM -->
+        <div class="method-card">
+
+            <div class="credit">By R1SH1/~</div>
+
+            <h3>⚠️ Scam / Fraud</h3>
+
+            <p>
+                Fake offers, suspicious payment requests,
+                phishing or fraudulent activity.
+            </p>
+
+            <div class="method">
+                SC4M
+            </div>
+
         </div>
 
-    </div>
 
+        <!-- PRIVACY -->
+        <div class="method-card">
 
-    <!-- SCAM -->
-    <div class="method-card">
+            <div class="credit">By R1SH1/~</div>
 
-        <div class="credit">By R1SH1/~</div>
+            <h3>🔒 Privacy Issue</h3>
 
-        <h3>⚠️ Scam / Fraud</h3>
+            <p>
+                Someone has shared your personal information
+                without permission.
+            </p>
 
-        <p>
-            Fake offers, suspicious payment requests,
-            phishing or fraudulent activity.
-        </p>
+            <div class="method">
+                PRIVACY
+            </div>
 
-        <div class="method">
-            SC4M
         </div>
 
-    </div>
 
+        <!-- INAPPROPRIATE CONTENT -->
+        <div class="method-card">
 
-    <!-- PRIVACY -->
-    <div class="method-card">
+            <div class="credit">By R1SH1/~</div>
 
-        <div class="credit">By R1SH1/~</div>
+            <h3>🚫 Inappropriate Content</h3>
 
-        <h3>🔒 Privacy Issue</h3>
+            <p>
+                Content that violates a platform's community
+                guidelines or safety rules.
+            </p>
 
-        <p>
-            Someone has shared your personal information
-            without permission.
-        </p>
+            <div class="method">
+                OFFICIAL REPORT CATEGORY
+            </div>
 
-        <div class="method">
-            PRIVACY
         </div>
 
-    </div>
-
-
-    <!-- INAPPROPRIATE CONTENT -->
-    <div class="method-card">
-
-        <div class="credit">By R1SH1/~</div>
-
-        <h3>🚫 Inappropriate Content</h3>
-
-        <p>
-            Content that violates a platform's community
-            guidelines or safety rules.
-        </p>
-
-        <div class="method">
-            OFFICIAL REPORT CATEGORY
-        </div>
 
     </div>
 
 
     <div class="safety">
-        <b>⚠️ Important:</b><br>
+
+        <strong>⚠️ Important:</strong><br>
+
         Report genuine violations through the platform's
         official reporting system. A report does not guarantee
         that an account or post will be removed.
+
     </div>
 
 </section>
@@ -605,6 +882,10 @@ footer{
 
 <!-- FOOTER -->
 <footer>
+
+    <div class="footer-logo">
+        Ban<span>Hub</span>
+    </div>
 
     © 2026 BanHub • Social Media Safety
 
@@ -616,6 +897,7 @@ footer{
 
 
 <script>
+
 function showMethods(){
 
     const section = document.getElementById("methods");
@@ -625,11 +907,14 @@ function showMethods(){
     setTimeout(function(){
 
         section.scrollIntoView({
-            behavior:"smooth"
+            behavior:"smooth",
+            block:"start"
         });
 
     },100);
+
 }
+
 </script>
 
 </body>
